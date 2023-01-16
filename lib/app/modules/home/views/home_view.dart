@@ -123,7 +123,7 @@ class HomeView extends GetView<HomeController> {
                                             Get.toNamed(Routes.ANALYICS_DASHBOARD);
                                           },
                                           icon: Icon(Icons.remove_red_eye_outlined),
-                                          label: "make".text.make(),
+                                          label: "more".text.make(),
                                         )
                                       ],
                                       alignment: MainAxisAlignment.spaceBetween,
@@ -186,16 +186,10 @@ class HomeView extends GetView<HomeController> {
                                         color: Colors.white,
                                       ),
                                     ),
-                                    ElevatedButton.icon(
-                                      onPressed: () {
-                                        Get.toNamed(Routes.ANALYICS_DASHBOARD);
-                                      },
-                                      icon: Icon(Icons.remove_red_eye_outlined),
-                                      label: "make".text.make(),
-                                    )
+                                  
                                   ],
-                                  alignment: MainAxisAlignment.spaceBetween,
-                                  axisSize: MainAxisSize.max,
+                                  
+                                  
                                 ),
                               ], crossAlignment: CrossAxisAlignment.center)
                                   .paddingOnly(right: 10);

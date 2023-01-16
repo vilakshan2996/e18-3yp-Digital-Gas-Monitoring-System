@@ -19,6 +19,8 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
           child: GFTabBarView(
             controller: controller.tabController,
             children: <Widget>[
+              
+              demoChart(),
               GridView.count(
                 crossAxisCount: 3, // number of columns
                 children:
@@ -43,7 +45,6 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
                   );
                 }).toList(),
               ),
-              demoChart(),
             ],
           ),
         ),
@@ -69,6 +70,8 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
   }
 
   Container demoChart() {
+
+    
     return Container(
         child: SfCartesianChart(
             plotAreaBackgroundColor: Colors.white,
@@ -80,7 +83,7 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
               groupName: 'Group A',
               dataLabelSettings:
                   DataLabelSettings(isVisible: true, useSeriesColor: true),
-              dataSource: controller.data1,
+              dataSource: controller.thisWeek,
               xValueMapper: (ChartSampleData data, _) => data.x,
               yValueMapper: (ChartSampleData data, _) => data.y,
               animationDuration: 2000),
@@ -88,7 +91,7 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
               groupName: 'Group B',
               dataLabelSettings:
                   DataLabelSettings(isVisible: true, useSeriesColor: true),
-              dataSource: controller.data2,
+              dataSource: controller.thisWeek,
               xValueMapper: (ChartSampleData data, _) => data.x,
               yValueMapper: (ChartSampleData data, _) => data.y,
               animationDuration: 2000,

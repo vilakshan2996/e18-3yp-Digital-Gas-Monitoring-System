@@ -76,7 +76,6 @@ class MonthStats {
     jan = double.parse(json['jan'].toString());
     dec = double.parse(json['dec'].toString());
     jun = double.parse(json['jun'].toString());
-    
   }
 
   Map<String, dynamic> toJson() {
@@ -129,14 +128,13 @@ class Gas {
     monthStats = json['monthStats'] != null
         ? MonthStats?.fromJson(json['monthStats'])
         : null;
-     print(json["monthStats"]);
+    print(json["monthStats"]);
     // gasInitialized = json['gasInitialized'] != null ? GasInitialized?.fromJson(json['gasInitialized']) : null;
     gasWeight = json['gasWeight'];
     isAvailable = json['isAvailable'];
     leakagelevel = json['leakagelevel'];
     // weekStats = json['weekStats'] != null ? WeekStats?.fromJson(json['weekStats']) : null;
-    // thisWeek = json['thisWeek'] != null ? ThisWeek?.fromJson(json['thisWeek']) : null;
-    
+    thisWeek = json['thisWeek'] != null ? ThisWeek?.fromJson(json['thisWeek']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -155,36 +153,40 @@ class Gas {
 }
 
 class ThisWeek {
-  int? sat;
-  int? wed;
-  int? sun;
-  int? fri;
-  int? thu;
-  int? tue;
-  int? mon;
+  double? sat;
+  double? wed;
+  double? sun;
+  double? fri;
+  double? thu;
+  double? tue;
+  double? mon;
 
   ThisWeek(
       {this.sat, this.wed, this.sun, this.fri, this.thu, this.tue, this.mon});
 
   ThisWeek.fromJson(Map<String, dynamic> json) {
-    sat = json['sat'];
-    wed = json['wed'];
-    sun = json['sun'];
-    fri = json['fri'];
-    thu = json['thu'];
-    tue = json['tue'];
-    mon = json['mon'];
+    sat = double.parse(json['sat'].toString());
+    wed = double.parse(json['wed'].toString());
+    sun = double.parse(json['sun'].toString());
+    fri = double.parse(json['fri'].toString());
+    thu = double.parse(json['thu'].toString());
+    tue = double.parse(json['tue'].toString());
+    mon = double.parse(json['mon'].toString());
   }
 
   Map<String, dynamic> toJson() {
+    print("started json");
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['sat'] = sat;
-    data['wed'] = wed;
-    data['sun'] = sun;
-    data['fri'] = fri;
-    data['thu'] = thu;
-    data['tue'] = tue;
+
     data['mon'] = mon;
+    data['tue'] = tue;
+    data['wed'] = wed;
+    data['thu'] = thu;
+    data['fri'] = fri;
+    data['sat'] = sat;
+
+    data['sun'] = sun;
+    print("finished");
     return data;
   }
 }

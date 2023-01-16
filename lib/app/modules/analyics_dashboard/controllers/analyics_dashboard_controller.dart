@@ -21,19 +21,14 @@ final months = [
     ];
 
   late TabController tabController;
-  final data1= [
-  ChartSampleData(x: 'Jan', y: 15, series: 'A'),
-  ChartSampleData(x: 'Feb', y: 20, series: 'A'),
-  ChartSampleData(x: 'Mar', y: 25, series: 'A'),
-  
-];
+  List<ChartSampleData> thisWeek= [];
 
-final data2= [
-  ChartSampleData(x: 'Jan', y: 10),
-  ChartSampleData(x: 'Feb', y: 30),
-  ChartSampleData(x: 'Mar', y: 14),
+// final data2= [
+//   ChartSampleData(x: 'Jan', y: 10),
+//   ChartSampleData(x: 'Feb', y: 30),
+//   ChartSampleData(x: 'Mar', y: 14),
   
-];
+// ];
 
 
   //TODO: Implement AnalyicsDashboardController
@@ -46,9 +41,9 @@ final data2= [
   void onInit() {
     super.onInit();
     tabController = TabController(length: 2, vsync: this);
-    print("...........Analysis of of active gas => ${Gases.activeGas}.................");
-    print(Gases.activeGas!.monthStats!.jan);
-    
+    Gases.activeGas!.thisWeek!.toJson().entries.forEach((element) { 
+      thisWeek.add(ChartSampleData(x: element.key,y: element.value));
+    });
   }
 
   @override
